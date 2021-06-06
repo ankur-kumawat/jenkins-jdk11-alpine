@@ -20,8 +20,8 @@ ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 
 # Jenkins is run with user jenkins and uid 1000. If you bind mount a volume from the host or a data container, use the same uid
 
-RUN addgroup -G ${gid} ${group}
-RUN adduser -h "$JENKINS_HOME" -S ${uid} -G ${gid} -S /bin/bash ${user}
+RUN addgroup -g ${gid} ${group}
+RUN adduser -h "$JENKINS_HOME" -S ${uid} -g ${gid} -s /bin/bash ${user}
 
 # Set up internal volume for jenkins
 VOLUME /var/jenkins_home
